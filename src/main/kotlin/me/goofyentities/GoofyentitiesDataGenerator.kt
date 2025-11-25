@@ -1,0 +1,9 @@
+package me.goofyentities
+
+import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint
+import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator
+
+object GoofyentitiesDataGenerator : DataGeneratorEntrypoint {
+	override fun onInitializeDataGenerator(fabricDataGenerator: FabricDataGenerator) {
+	}
+}

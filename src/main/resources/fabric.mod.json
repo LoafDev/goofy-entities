@@ -1,0 +1,50 @@
+{
+	"schemaVersion": 1,
+	"id": "goofy-entities",
+	"version": "${version}",
+	"name": "goofy-entities",
+	"description": "Add goofy things to the game!",
+	"authors": [
+		"legoloaf17"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/LoafDev/goofy-entities"
+	},
+	"license": "GNU GPL v3.0",
+	"icon": "assets/goofy-entities/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			{
+				"value": "me.goofyentities.Goofyentities",
+				"adapter": "kotlin"
+			}
+		],
+		"fabric-datagen": [
+			{
+				"value": "me.goofyentities.GoofyentitiesDataGenerator",
+				"adapter": "kotlin"
+			}
+		],
+		"client": [
+			{
+				"value": "me.goofyentities.GoofyentitiesClient",
+				"adapter": "kotlin"
+			}
+		]
+	},
+	"mixins": [
+		"goofy-entities.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.18.1",
+		"minecraft": "~1.21.9",
+		"java": ">=21",
+		"fabric-api": "*",
+		"fabric-language-kotlin": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}

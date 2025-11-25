@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ggg",
+    "gCg",
+    "ggg"
+  ],
+  "key": {
+    "g": "minecraft:gold_ingot",
+    "C": "goofy-entities:chili_pepper"
+  },
+  "result": {
+    "id": "goofy-entities:golden_chili_pepper",
+    "count": 1
+  }
+}
