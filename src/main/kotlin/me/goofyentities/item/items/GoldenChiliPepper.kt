@@ -1,5 +1,6 @@
 package me.goofyentities.item.items
 
+import me.goofyentities.effect.ModEffects
 import me.goofyentities.item.ModItems
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry
@@ -18,26 +19,27 @@ object GoldenChiliPepper {
         .consumeEffect(
             ApplyEffectsConsumeEffect(
                 listOf(
-                    StatusEffectInstance(StatusEffects.STRENGTH, 120 * 20, 2),
-                    StatusEffectInstance(StatusEffects.HASTE, 180 * 20, 3),
-                    StatusEffectInstance(StatusEffects.SPEED, 120 * 20, 2)
+                    StatusEffectInstance(StatusEffects.SPEED, 15 * 20, 1),
+                    StatusEffectInstance(ModEffects.CRIT_EFFECT, 15 * 20, 1)
                 ),
                 1.0f
             )
         )
-        .consumeSeconds(0f)
+        .consumeSeconds(1f)
         .build()
 
     val GOLDEN_CHILI_PEPPER_FOOD_COMPONENT: FoodComponent? = FoodComponent.Builder()
         .alwaysEdible()
-        .nutrition(2)
+        .nutrition(3)
         .saturationModifier(3f)
         .build()
 
     val GOLDEN_CHILI_PEPPER = ModItems.registerItem(
         "golden_chili_pepper",
         { settings: Item.Settings -> Item(settings) },
-        Item.Settings().food(GOLDEN_CHILI_PEPPER_FOOD_COMPONENT, GOLDEN_CHILI_PEPPER_CONSUMABLE_COMPONENT)
+        Item.Settings()
+            .food(GOLDEN_CHILI_PEPPER_FOOD_COMPONENT, GOLDEN_CHILI_PEPPER_CONSUMABLE_COMPONENT)
+            .maxCount(69)
     )
 
 
@@ -45,8 +47,8 @@ object GoldenChiliPepper {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register { it.add(GOLDEN_CHILI_PEPPER) }
 
         FuelRegistryEvents.BUILD.register {
-            builder, context -> builder.add(GOLDEN_CHILI_PEPPER, 72000)
-            // make golden chili pepper a fuel that can burn for 60 minutes or 60 * 60 * 20 tick rates
+            builder, context -> builder.add(GOLDEN_CHILI_PEPPER, 36000)
+            // make golden chili pepper a fuel that can burn for 30 minutes or 30 * 60 * 20 tick rates
         }
 
         CompostingChanceRegistry.INSTANCE.add(GOLDEN_CHILI_PEPPER, 1.0f)

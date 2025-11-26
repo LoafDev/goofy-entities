@@ -15,20 +15,19 @@ import net.minecraft.item.consume.ApplyEffectsConsumeEffect
 
 object ChiliPepper {
     val CHILI_PEPPER_CONSUMABLE_COMPONENT: ConsumableComponent? = ConsumableComponents.food()
-        .consumeEffect(ApplyEffectsConsumeEffect(
-            listOf(
-                StatusEffectInstance(StatusEffects.STRENGTH, 5 * 20, 1),
-                StatusEffectInstance(StatusEffects.HASTE, 10 * 20, 2),
-                StatusEffectInstance(StatusEffects.SPEED, 5 * 20, 1)
-            ),
-        1.0f))
-        .consumeSeconds(0f)
+        .consumeEffect(
+            ApplyEffectsConsumeEffect(
+                StatusEffectInstance(StatusEffects.SPEED, 5 * 20, 1),
+                1.0f
+            )
+        )
+        .consumeSeconds(0.5f)
         .build()
 
     val CHILI_PEPPER_FOOD_COMPONENT: FoodComponent? = FoodComponent.Builder()
         .alwaysEdible()
-        .nutrition(1)
-        .saturationModifier(0f)
+        .nutrition(2)
+        .saturationModifier(1f)
         .build()
 
     val CHILI_PEPPER = ModItems.registerItem(
@@ -41,8 +40,8 @@ object ChiliPepper {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register { it.add(CHILI_PEPPER) }
 
         FuelRegistryEvents.BUILD.register {
-            builder, context ->  builder.add(CHILI_PEPPER, 12000)
-            // make chili pepper a fuel that can burn for 10 minutes or 10 * 60 * 20 tick rates
+            builder, context ->  builder.add(CHILI_PEPPER, 3600)
+            // make chili pepper a fuel that can burn for 3 minutes or 3 * 60 * 20 tick rates
         }
 
         CompostingChanceRegistry.INSTANCE.add(CHILI_PEPPER, 1.0f)

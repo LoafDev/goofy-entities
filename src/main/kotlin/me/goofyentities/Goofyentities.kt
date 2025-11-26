@@ -1,5 +1,6 @@
 package me.goofyentities
 
+import me.goofyentities.effect.ModEffects
 import net.fabricmc.api.ModInitializer
 import me.goofyentities.item.ModItems
 import org.slf4j.LoggerFactory
@@ -12,5 +13,6 @@ object Goofyentities : ModInitializer {
 	override fun onInitialize() {
 		logger?.info(MOD_ID)
 		ModItems.registerModItems()
+		ModEffects.registerModEffects()
 	}
 }
