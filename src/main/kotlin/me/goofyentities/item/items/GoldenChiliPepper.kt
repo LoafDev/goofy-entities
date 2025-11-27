@@ -19,8 +19,8 @@ object GoldenChiliPepper {
         .consumeEffect(
             ApplyEffectsConsumeEffect(
                 listOf(
-                    StatusEffectInstance(StatusEffects.SPEED, 15 * 20, 1),
-                    StatusEffectInstance(ModEffects.CRIT_EFFECT, 15 * 20, 1)
+                    StatusEffectInstance(StatusEffects.SPEED, 15 * 20, 0),
+                    StatusEffectInstance(ModEffects.CRIT_EFFECT, 15 * 20, 0)
                 ),
                 1.0f
             )
@@ -31,7 +31,7 @@ object GoldenChiliPepper {
     val GOLDEN_CHILI_PEPPER_FOOD_COMPONENT: FoodComponent? = FoodComponent.Builder()
         .alwaysEdible()
         .nutrition(3)
-        .saturationModifier(3f)
+        .saturationModifier(0.75f)
         .build()
 
     val GOLDEN_CHILI_PEPPER = ModItems.registerItem(

@@ -12,7 +12,7 @@ object CritEffect : StatusEffect(StatusEffectCategory.BENEFICIAL, 0xe9b8b3) {
 
     override fun applyUpdateEffect(world: ServerWorld?, entity: LivingEntity?, amplifier: Int): Boolean {
         if (entity is PlayerEntity) {
-            entity.addCritParticles(entity)
+            //entity.addCritParticles(entity)
         } else if (entity is HostileEntity) {
             entity.addDeathParticles()
         }

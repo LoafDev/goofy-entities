@@ -17,17 +17,17 @@ object ChiliPepper {
     val CHILI_PEPPER_CONSUMABLE_COMPONENT: ConsumableComponent? = ConsumableComponents.food()
         .consumeEffect(
             ApplyEffectsConsumeEffect(
-                StatusEffectInstance(StatusEffects.SPEED, 5 * 20, 1),
+                StatusEffectInstance(StatusEffects.SPEED, 5 * 20, 0),
                 1.0f
             )
         )
-        .consumeSeconds(0.5f)
+        .consumeSeconds(0.75f)
         .build()
 
     val CHILI_PEPPER_FOOD_COMPONENT: FoodComponent? = FoodComponent.Builder()
         .alwaysEdible()
         .nutrition(2)
-        .saturationModifier(1f)
+        .saturationModifier(0.5f)
         .build()
 
     val CHILI_PEPPER = ModItems.registerItem(
