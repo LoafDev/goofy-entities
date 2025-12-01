@@ -1,7 +1,7 @@
 package me.goofyentities.particle
 
 import me.goofyentities.Goofyentities
-import me.goofyentities.particle.particles.BlackFlashParticle
+import me.goofyentities.particle.particles.GeneralParticle
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry
 import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes
 import net.minecraft.particle.SimpleParticleType
@@ -11,6 +11,8 @@ import net.minecraft.util.Identifier
 
 object ModParticle {
     val BLACKFLASH_PARTICLE = registerParticle("black_flash_particle", FabricParticleTypes.simple())
+    val GUARANTEECRIT_PARTICLE = registerParticle("guarantee_crit_particle", FabricParticleTypes.simple())
+    val BLACK_BLACKFLASH_PARTICLE = registerParticle("black_black_flash_particle", FabricParticleTypes.simple())
 
     private fun registerParticle(name: String, particleType: SimpleParticleType): SimpleParticleType {
         return Registry.register(
@@ -25,6 +27,17 @@ object ModParticle {
     }
 
     fun registerParticlesClient() {
-        ParticleFactoryRegistry.getInstance().register(BLACKFLASH_PARTICLE) { BlackFlashParticle.Factory(it) }
+        ParticleFactoryRegistry.getInstance().register(BLACKFLASH_PARTICLE) {GeneralParticle.Factory(
+            it,
+            red = 1f,
+            maxAge = 5
+        )}
+        ParticleFactoryRegistry.getInstance().register(GUARANTEECRIT_PARTICLE) {GeneralParticle.Factory(
+            it,
+            green = 1f,
+        )}
+        ParticleFactoryRegistry.getInstance().register(BLACK_BLACKFLASH_PARTICLE) {GeneralParticle.Factory(
+            it
+        )}
     }
 }

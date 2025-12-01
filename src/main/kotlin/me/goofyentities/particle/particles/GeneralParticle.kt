@@ -9,25 +9,27 @@ import net.minecraft.client.world.ClientWorld
 import net.minecraft.particle.SimpleParticleType
 import net.minecraft.util.math.random.Random
 
-class BlackFlashParticle : BillboardParticle {
+class GeneralParticle : BillboardParticle {
     constructor(
         clientWorld: ClientWorld,
         x: Double, y: Double, z: Double,
         spriteProvider: SpriteProvider,
-        xSpeed: Double, ySpeed: Double, zSpeed: Double
+        xSpeed: Double, ySpeed: Double, zSpeed: Double,
+
+        red: Float, green: Float, blue: Float,
+        maxAge: Int
     ) : super(
         clientWorld,
         x, y, z,
         xSpeed, ySpeed, zSpeed,
         spriteProvider.first
     ) {
-        this.maxAge = 10
-        this.velocityMultiplier = 1.2f
+        this.maxAge = maxAge
         this.updateSprite(spriteProvider)
 
-        this.red = 1.0f
-        this.blue = 1.0f
-        this.green = 1.0f
+        this.red = red
+        this.green = green
+        this.blue = blue
     }
 
     override fun textureSheet(): ParticleTextureSheet? = ParticleTextureSheet.SINGLE_QUADS
@@ -35,7 +37,18 @@ class BlackFlashParticle : BillboardParticle {
 
     class Factory : ParticleFactory<SimpleParticleType> {
         val spriteProvider: SpriteProvider
-        constructor(spriteProvider: SpriteProvider) { this.spriteProvider = spriteProvider }
+        val red: Float
+        val green: Float
+        val blue: Float
+        val maxAge: Int
+
+        constructor(spriteProvider: SpriteProvider, red: Float = 0f, green: Float = 0f, blue: Float = 0f, maxAge: Int = 10) {
+            this.spriteProvider = spriteProvider
+            this.red = red
+            this.green = green
+            this.blue = blue
+            this.maxAge = maxAge
+        }
 
         override fun createParticle(
             parameters: SimpleParticleType?,
@@ -47,11 +60,13 @@ class BlackFlashParticle : BillboardParticle {
             velocityY: Double,
             velocityZ: Double,
             random: Random?
-        ): Particle? = if (world is ClientWorld) BlackFlashParticle(
+        ): Particle? = if (world is ClientWorld) GeneralParticle(
             world,
             x,y,z,
             this.spriteProvider,
-            velocityX, velocityY,velocityZ
+            velocityX, velocityY,velocityZ,
+            this.red, this.green, this.blue,
+            this.maxAge
         ) else null
     }
 }

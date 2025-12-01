@@ -2,6 +2,8 @@ package me.goofyentities.effect
 
 import me.goofyentities.Goofyentities
 import me.goofyentities.effect.effects.CritEffect
+import net.minecraft.entity.attribute.EntityAttributeModifier
+import net.minecraft.entity.attribute.EntityAttributes
 import net.minecraft.entity.effect.StatusEffect
 import net.minecraft.registry.Registries
 import net.minecraft.registry.Registry
@@ -12,7 +14,12 @@ object ModEffects {
     val CRIT_EFFECT: RegistryEntry.Reference<StatusEffect?>? = Registry.registerReference(
         Registries.STATUS_EFFECT,
         Identifier.of(Goofyentities.MOD_ID, "crit_effect"),
-        CritEffect
+        CritEffect.addAttributeModifier(
+            EntityAttributes.ATTACK_DAMAGE,
+            Identifier.of(Goofyentities.MOD_ID, "crit_effect"),
+            1.5,
+            EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE
+        )
     )
 
     fun registerModEffects() {
