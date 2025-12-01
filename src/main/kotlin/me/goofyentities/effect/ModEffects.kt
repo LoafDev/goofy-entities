@@ -17,7 +17,7 @@ object ModEffects {
         CritEffect.addAttributeModifier(
             EntityAttributes.ATTACK_DAMAGE,
             Identifier.of(Goofyentities.MOD_ID, "crit_effect"),
-            1.5,
+            0.5,
             EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE
         )
     )

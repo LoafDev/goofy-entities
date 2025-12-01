@@ -1,13 +1,9 @@
 package me.goofyentities.effect.effects
 
-import me.goofyentities.Goofyentities
 import net.minecraft.entity.LivingEntity
-import net.minecraft.entity.attribute.EntityAttributeModifier
-import net.minecraft.entity.attribute.EntityAttributes
 import net.minecraft.entity.effect.StatusEffect
 import net.minecraft.entity.effect.StatusEffectCategory
 import net.minecraft.server.world.ServerWorld
-import net.minecraft.util.Identifier
 
 object CritEffect : StatusEffect(StatusEffectCategory.BENEFICIAL, 0xe9b8b3) {
     override fun canApplyUpdateEffect(duration: Int, amplifier: Int): Boolean = true

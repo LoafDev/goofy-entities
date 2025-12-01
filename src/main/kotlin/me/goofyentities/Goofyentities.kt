@@ -1,6 +1,7 @@
 package me.goofyentities
 
 import me.goofyentities.effect.ModEffects
+import me.goofyentities.event.AttackEntityCallbackEvent
 import net.fabricmc.api.ModInitializer
 import me.goofyentities.item.ModItems
 import me.goofyentities.particle.ModParticle
@@ -16,5 +17,6 @@ object Goofyentities : ModInitializer {
 		ModItems.registerModItems()
 		ModEffects.registerModEffects()
 		ModParticle.registerParticles()
+		AttackEntityCallbackEvent.registerAttackEvent()
 	}
 }
