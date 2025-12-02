@@ -1,13 +1,11 @@
 package me.goofyentities.particle.particles
 
-import net.minecraft.client.particle.BillboardParticle
-import net.minecraft.client.particle.Particle
-import net.minecraft.client.particle.ParticleFactory
-import net.minecraft.client.particle.ParticleTextureSheet
-import net.minecraft.client.particle.SpriteProvider
+import net.minecraft.client.particle.*
 import net.minecraft.client.world.ClientWorld
 import net.minecraft.particle.SimpleParticleType
 import net.minecraft.util.math.random.Random
+
+import kotlin.math.max
 
 class GeneralParticle : BillboardParticle {
     constructor(
@@ -21,15 +19,26 @@ class GeneralParticle : BillboardParticle {
     ) : super(
         clientWorld,
         x, y, z,
-        xSpeed, ySpeed, zSpeed,
+        0.0, 0.0, 0.0,
         spriteProvider.first
     ) {
-        this.maxAge = maxAge
+        this.maxAge = max(maxAge - kotlin.random.Random.nextInt(0,2), 1)
         this.updateSprite(spriteProvider)
 
         this.red = red
         this.green = green
         this.blue = blue
+
+        this.velocityMultiplier = 0.7f
+        this.gravityStrength = 0.5f
+
+        this.velocityX *= 0.1
+        this.velocityY *= 0.1
+        this.velocityZ *= 0.1
+
+        this.velocityX += xSpeed * 0.4
+        this.velocityY += ySpeed * 0.4
+        this.velocityZ += zSpeed * 0.4
     }
 
     override fun textureSheet(): ParticleTextureSheet? = ParticleTextureSheet.SINGLE_QUADS

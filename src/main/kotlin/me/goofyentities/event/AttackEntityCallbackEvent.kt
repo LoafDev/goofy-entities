@@ -2,10 +2,12 @@ package me.goofyentities.event
 
 import me.goofyentities.effect.ModEffects
 import me.goofyentities.particle.ModParticle
+import me.goofyentities.sound.ModSound
 import net.fabricmc.fabric.api.event.player.AttackEntityCallback
 import net.minecraft.entity.LivingEntity
 import net.minecraft.entity.effect.StatusEffects
 import net.minecraft.server.world.ServerWorld
+import net.minecraft.sound.SoundEvents
 import net.minecraft.util.ActionResult
 import net.minecraft.world.GameMode
 
@@ -35,28 +37,25 @@ object AttackEntityCallbackEvent {
                         entity.z,
                         15,
                         0.0, 0.0, 0.0,
-                        3.5,
+                        1.0,
                     )
 
+                    if (!entity.entityWorld.isClient)
+                        entity.playSound(ModSound.BLACK_FLASH_SOUND)
+                } else {
                     world.spawnParticles(
-                        ModParticle.BLACK_BLACKFLASH_PARTICLE,
+                        ModParticle.GUARANTEECRIT_PARTICLE,
                         entity.x,
                         entity.y + entity.height / 2.0,
                         entity.z,
-                        10,
+                        15,
                         0.0, 0.0, 0.0,
-                        4.0,
+                        1.0
                     )
+
+                    if (!entity.entityWorld.isClient)
+                        entity.playSound(SoundEvents.ENTITY_PLAYER_ATTACK_CRIT)
                 }
-                else world.spawnParticles(
-                    ModParticle.GUARANTEECRIT_PARTICLE,
-                    entity.x,
-                    entity.y + entity.height / 2.0,
-                    entity.z,
-                    15,
-                    0.0, 0.0, 0.0,
-                    4.0
-                )
             }
         }
         ActionResult.PASS

@@ -1,5 +1,6 @@
 {
   "item.goofy-entities.chili_pepper": "Chili Pepper",
   "item.goofy-entities.golden_chili_pepper": "Golden Chili Pepper",
-  "effect.goofy-entities.crit_effect": "Guarantee Critical Effect"
+  "effect.goofy-entities.crit_effect": "Guarantee Critical Effect",
+  "sound.goofy-entities.black_flash": "Black flash"
 }

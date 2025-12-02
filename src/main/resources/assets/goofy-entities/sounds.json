@@ -1,0 +1,14 @@
+{
+  "black_flash": {
+    "subtitle": "sound.goofy-entities.black_flash",
+    "sounds": [
+      "goofy-entities:black_flash"
+    ]
+  },
+  "engine": {
+    "subtitle": "sound.goofy-entities.engine",
+    "sounds": [
+      "goofy-entities:engine"
+    ]
+  }
+}

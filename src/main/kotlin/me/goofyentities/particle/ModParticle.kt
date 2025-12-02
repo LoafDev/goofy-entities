@@ -12,7 +12,6 @@ import net.minecraft.util.Identifier
 object ModParticle {
     val BLACKFLASH_PARTICLE = registerParticle("black_flash_particle", FabricParticleTypes.simple())
     val GUARANTEECRIT_PARTICLE = registerParticle("guarantee_crit_particle", FabricParticleTypes.simple())
-    val BLACK_BLACKFLASH_PARTICLE = registerParticle("black_black_flash_particle", FabricParticleTypes.simple())
 
     private fun registerParticle(name: String, particleType: SimpleParticleType): SimpleParticleType {
         return Registry.register(
@@ -30,14 +29,14 @@ object ModParticle {
         ParticleFactoryRegistry.getInstance().register(BLACKFLASH_PARTICLE) {GeneralParticle.Factory(
             it,
             red = 1f,
+            green = 1f,
+            blue = 1f,
             maxAge = 5
         )}
         ParticleFactoryRegistry.getInstance().register(GUARANTEECRIT_PARTICLE) {GeneralParticle.Factory(
             it,
-            green = 1f,
-        )}
-        ParticleFactoryRegistry.getInstance().register(BLACK_BLACKFLASH_PARTICLE) {GeneralParticle.Factory(
-            it
+            blue = 1f,
+            maxAge = 5
         )}
     }
 }

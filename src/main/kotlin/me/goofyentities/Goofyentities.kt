@@ -5,6 +5,7 @@ import me.goofyentities.event.AttackEntityCallbackEvent
 import net.fabricmc.api.ModInitializer
 import me.goofyentities.item.ModItems
 import me.goofyentities.particle.ModParticle
+import me.goofyentities.sound.ModSound
 import org.slf4j.LoggerFactory
 import org.slf4j.Logger
 
@@ -17,6 +18,7 @@ object Goofyentities : ModInitializer {
 		ModItems.registerModItems()
 		ModEffects.registerModEffects()
 		ModParticle.registerParticles()
+		ModSound.registerSounds()
 		AttackEntityCallbackEvent.registerAttackEvent()
 	}
 }
