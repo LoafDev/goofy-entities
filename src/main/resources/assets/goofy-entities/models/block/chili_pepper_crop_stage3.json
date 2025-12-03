@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "goofy-entities:block/chili_pepper_crop_stage3"
+  }
+}

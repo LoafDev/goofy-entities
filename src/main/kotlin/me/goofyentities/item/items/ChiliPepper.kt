@@ -1,5 +1,6 @@
 package me.goofyentities.item.items
 
+import me.goofyentities.block.ModBlock
 import me.goofyentities.item.ModItems
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry
@@ -9,6 +10,7 @@ import net.minecraft.component.type.ConsumableComponents
 import net.minecraft.component.type.FoodComponent
 import net.minecraft.entity.effect.StatusEffectInstance
 import net.minecraft.entity.effect.StatusEffects
+import net.minecraft.item.BlockItem
 import net.minecraft.item.Item
 import net.minecraft.item.ItemGroups
 import net.minecraft.item.consume.ApplyEffectsConsumeEffect
@@ -32,8 +34,10 @@ object ChiliPepper {
 
     val CHILI_PEPPER = ModItems.registerItem(
         "chili_pepper",
-        { settings: Item.Settings -> Item(settings) },
-        Item.Settings().food(CHILI_PEPPER_FOOD_COMPONENT, CHILI_PEPPER_CONSUMABLE_COMPONENT)
+        { BlockItem(ModBlock.CHILI_PEPPER_CROP, it) },
+        Item.Settings()
+            .food(CHILI_PEPPER_FOOD_COMPONENT, CHILI_PEPPER_CONSUMABLE_COMPONENT)
+            .useItemPrefixedTranslationKey()
     )
 
     fun initChiliPepper() {
