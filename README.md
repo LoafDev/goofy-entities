@@ -19,3 +19,9 @@ Roadmap without a map (strikethrough means completed):
     * Four consecutive black flashes
     * Finish an entity with a black flash
 * ~~Make chill pepper a crop~~ and drop from hostile mobs
+
+Dependencies:
+* [Fabric Language Kotlin](https://modrinth.com/mod/fabric-language-kotlin)
+* [Fabric API](https://modrinth.com/mod/fabric-api)
+* Minecraft 1.21.9 (any other version isn't supported!)
+* Fabric loader **0.18.1** and above!
