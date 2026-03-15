@@ -1,3 +1,8 @@
+## NOTE:
+This mod is not maintained anymore! I plan to rewrite this mod in Java with Polymer!
+[Polymer](https://polymer.pb4.eu/latest/)
+[java port](https://github.com/LoafDev/goofy-entities-java)
+
 ### Goofy Entities
 A small mod made purely for the purpose of adding
 _goofy_ stuff to the game.
